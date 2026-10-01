@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1f242d 0%, #11141a 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Background Animated Gears */
+.background-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0.05;
+}
+
+.gear {
+    position: absolute;
+    border: 15px dashed #ffffff;
+    border-radius: 50%;
+}
+
+.gear-1 {
+    width: 300px;
+    height: 300px;
+    top: -50px;
+    left: -50px;
+    animation: rotateClockwise 20s linear infinite;
+}
+
+.gear-2 {
+    width: 450px;
+    height: 450px;
+    bottom: -100px;
+    right: -100px;
+    animation: rotateCounterClockwise 30s linear infinite;
+}
+
+.gear-3 {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    right: 15%;
+    animation: rotateClockwise 15s linear infinite;
+}
+
+/* Main Container and Card */
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 50px 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+/* Jenkins Icon Styling & Animation */
+.icon-wrapper {
+    background: linear-gradient(135deg, #d33833 0%, #f44336 100%);
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 25px auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(211, 56, 51, 0.4);
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+.jenkins-icon {
+    color: #ffffff;
+    animation: rotateGear 8s linear infinite;
+}
+
+/* Typography Animations */
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #ffffff, #cfd8dc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.5px;
+}
+
+p {
+    font-size: 1rem;
+    color: #90a4ae;
+    margin-bottom: 30px;
+}
+
+/* Loading Pipeline Bar Animation */
+.loading-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #d33833, #ff7043, #d33833);
+    background-size: 200% 100%;
+    border-radius: 3px;
+    animation: pipelineLoad 2.5s ease-in-out infinite;
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatIcon {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes rotateGear {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateCounterClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes pipelineLoad {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
